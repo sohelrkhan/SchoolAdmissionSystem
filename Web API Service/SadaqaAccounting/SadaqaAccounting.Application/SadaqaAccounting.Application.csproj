@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <Folder Include="ApplicationLogic\Reports\" />
+    <Folder Include="ApplicationLogic\SchoolAdmissionSystem\AdmissionClassLogic\Queries\" />
   </ItemGroup>
 
 </Project>

@@ -10,6 +10,7 @@
             public readonly static int TransactionType = 4;
             public readonly static int SourceType = 5;
             public readonly static int Month = 6;
+            public readonly static int AdmissionHoldStatus = 7;
         }
     }
 
@@ -60,6 +61,14 @@
             public readonly static int Octobor = 21;
             public readonly static int November = 22;
             public readonly static int December = 23;
+        }
+
+        public static class AdmissionHoldStatus
+        {
+            public readonly static int Held = 31;
+            public readonly static int Confirmed = 32;
+            public readonly static int Expired = 33;
+            public readonly static int Cancelled = 34;
         }
     }
 }

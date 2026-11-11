@@ -1,4 +1,6 @@
 ﻿
+using SadaqaAccounting.Model.Models.SchoolAdmissionSystem;
+
 namespace SadaqaAccounting.Database.DatabaseContexts
 {
     public class DatabaseContext : IdentityDbContext
@@ -28,6 +30,12 @@ namespace SadaqaAccounting.Database.DatabaseContexts
         // New database sets should be added here.
         public DbSet<AccountUnit> AccountUnits { get; set; }
         public DbSet<UserAccountUnit> UserAccountUnits { get; set; }
+        #endregion
+
+        #region School Admission System
+        public DbSet<AdmissionClass> AdmissionClasses { get; set; }
+        public DbSet<AdmissionHold> AdmissionHolds { get; set; }
+        public DbSet<Student> Students { get; set; }
         #endregion
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

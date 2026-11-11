@@ -229,662 +229,6 @@ namespace SadaqaAccounting.Database.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.AssetManagement.Asset", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("AssetNo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime>("PurchaseDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("PurchaseValue")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.HasIndex("StatusId");
-
-                    b.ToTable("Assets", "AssetManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.CashBankManagement.Cash", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("Remarks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.ToTable("Cashes", "Cash&BankManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.Cash_BankManagement.Bank", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AccountNumber")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("BranchName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<decimal>("OpeningBalance")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.HasIndex("StatusId");
-
-                    b.ToTable("Banks", "Cash&BankManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.Cash_BankManagement.BankLedger", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("BankId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("SourceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SourceTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("TransactionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TransactionTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.HasIndex("BankId");
-
-                    b.HasIndex("SourceTypeId");
-
-                    b.HasIndex("TransactionTypeId");
-
-                    b.ToTable("BankLedgers", "Cash&BankManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.Cash_BankManagement.CashLedger", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("CashId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("SourceId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SourceTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("TransactionDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("TransactionTypeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.HasIndex("CashId");
-
-                    b.HasIndex("SourceTypeId");
-
-                    b.HasIndex("TransactionTypeId");
-
-                    b.ToTable("CashLedgers", "Cash&BankManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.Cash_BankManagement.OpeningBalance", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("BankId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CashId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("OpeningDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PaymentModeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.HasIndex("BankId");
-
-                    b.HasIndex("CashId");
-
-                    b.HasIndex("PaymentModeId");
-
-                    b.ToTable("OpeningBalances", "Cash&BankManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.DonorManagement.Donor", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Code")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MobileNo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<int>("StatusId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.HasIndex("StatusId");
-
-                    b.ToTable("Donors", "DonorManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.ExpenseManagement.Expense", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("BankId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CashId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("EventId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ExpenseCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ExpenseDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int>("PaymentModeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.HasIndex("BankId");
-
-                    b.HasIndex("CashId");
-
-                    b.HasIndex("EventId");
-
-                    b.HasIndex("ExpenseCategoryId");
-
-                    b.HasIndex("PaymentModeId");
-
-                    b.ToTable("Expenses", "ExpenseManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.ExpenseManagement.ExpenseCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.ToTable("ExpenseCategories", "ExpenseManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.IncomeManagement.Income", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<int?>("BankId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CashId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("DonorId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("EventId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("IncomeCategoryId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("MonthId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PaymentModeId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ReceiptBookNo")
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<DateTime>("ReceiptDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ReceiptNo")
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("Year")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.HasIndex("BankId");
-
-                    b.HasIndex("CashId");
-
-                    b.HasIndex("DonorId");
-
-                    b.HasIndex("EventId");
-
-                    b.HasIndex("IncomeCategoryId");
-
-                    b.HasIndex("MonthId");
-
-                    b.HasIndex("PaymentModeId");
-
-                    b.ToTable("Incomes", "IncomeManagement");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.IncomeManagement.IncomeCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDonorBased")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.ToTable("IncomeCategories", "IncomeManagement");
-                });
-
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.AccessControl.Action", b =>
                 {
                     b.Property<int>("Id")
@@ -1231,57 +575,6 @@ namespace SadaqaAccounting.Database.Migrations
                     b.ToTable("EnumTypeCollections");
                 });
 
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.Event", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AccountUnitId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CreatedById")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<DateTime?>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UpdatedById")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("AccountUnitId");
-
-                    b.ToTable("Events", "MasterSettings");
-                });
-
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.Feature", b =>
                 {
                     b.Property<int>("Id")
@@ -1548,6 +841,113 @@ namespace SadaqaAccounting.Database.Migrations
                     b.ToTable("UserLoginHistories", "MasterSettings");
                 });
 
+            modelBuilder.Entity("SadaqaAccounting.Model.Models.SchoolAdmissionSystem.AdmissionClass", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedById")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeletedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Shift")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("TotalSeats")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UpdatedById")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("UpdatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AdmissionClasses");
+                });
+
+            modelBuilder.Entity("SadaqaAccounting.Model.Models.SchoolAdmissionSystem.AdmissionHold", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("AdmissionClassId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("CancelledAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("ConfirmedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ExpiresAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<int>("StudentId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AdmissionClassId");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("AdmissionHolds");
+                });
+
+            modelBuilder.Entity("SadaqaAccounting.Model.Models.SchoolAdmissionSystem.Student", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("BirthRegistrationNumber")
+                        .IsRequired()
+                        .HasMaxLength(17)
+                        .HasColumnType("nvarchar(17)");
+
+                    b.Property<DateTime>("CreatedAtUtc")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Students");
+                });
+
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.User", b =>
                 {
                     b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
@@ -1622,309 +1022,6 @@ namespace SadaqaAccounting.Database.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.AssetManagement.Asset", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("Assets")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-
-                    b.Navigation("Status");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.CashBankManagement.Cash", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("Cashes")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.Cash_BankManagement.Bank", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("Banks")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "Status")
-                        .WithMany("Banks")
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-
-                    b.Navigation("Status");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.Cash_BankManagement.BankLedger", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("BankLedgers")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.Cash_BankManagement.Bank", "Bank")
-                        .WithMany("BankLedgers")
-                        .HasForeignKey("BankId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "SourceType")
-                        .WithMany()
-                        .HasForeignKey("SourceTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "TransactionType")
-                        .WithMany()
-                        .HasForeignKey("TransactionTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-
-                    b.Navigation("Bank");
-
-                    b.Navigation("SourceType");
-
-                    b.Navigation("TransactionType");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.Cash_BankManagement.CashLedger", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("CashLedgers")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.CashBankManagement.Cash", "Cash")
-                        .WithMany("CashLedgers")
-                        .HasForeignKey("CashId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "SourceType")
-                        .WithMany()
-                        .HasForeignKey("SourceTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "TransactionType")
-                        .WithMany()
-                        .HasForeignKey("TransactionTypeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-
-                    b.Navigation("Cash");
-
-                    b.Navigation("SourceType");
-
-                    b.Navigation("TransactionType");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.Cash_BankManagement.OpeningBalance", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("OpeningBalances")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.Cash_BankManagement.Bank", "Bank")
-                        .WithMany("OpeningBalances")
-                        .HasForeignKey("BankId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.CashBankManagement.Cash", "Cash")
-                        .WithMany("OpeningBalances")
-                        .HasForeignKey("CashId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "PaymentMode")
-                        .WithMany()
-                        .HasForeignKey("PaymentModeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-
-                    b.Navigation("Bank");
-
-                    b.Navigation("Cash");
-
-                    b.Navigation("PaymentMode");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.DonorManagement.Donor", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("Donors")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "Status")
-                        .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-
-                    b.Navigation("Status");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.ExpenseManagement.Expense", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("Expenses")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.Cash_BankManagement.Bank", "Bank")
-                        .WithMany("Expenses")
-                        .HasForeignKey("BankId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.CashBankManagement.Cash", "Cash")
-                        .WithMany("Expenses")
-                        .HasForeignKey("CashId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Event", "Event")
-                        .WithMany("Expenses")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.ExpenseManagement.ExpenseCategory", "ExpenseCategory")
-                        .WithMany("Expenses")
-                        .HasForeignKey("ExpenseCategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "PaymentMode")
-                        .WithMany()
-                        .HasForeignKey("PaymentModeId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-
-                    b.Navigation("Bank");
-
-                    b.Navigation("Cash");
-
-                    b.Navigation("Event");
-
-                    b.Navigation("ExpenseCategory");
-
-                    b.Navigation("PaymentMode");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.ExpenseManagement.ExpenseCategory", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("ExpenseCategories")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.IncomeManagement.Income", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("Incomes")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.Cash_BankManagement.Bank", "Bank")
-                        .WithMany("Incomes")
-                        .HasForeignKey("BankId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.CashBankManagement.Cash", "Cash")
-                        .WithMany("Incomes")
-                        .HasForeignKey("CashId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.DonorManagement.Donor", "Donor")
-                        .WithMany("Incomes")
-                        .HasForeignKey("DonorId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Event", "Event")
-                        .WithMany("Incomes")
-                        .HasForeignKey("EventId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.IncomeManagement.IncomeCategory", "IncomeCategory")
-                        .WithMany("Incomes")
-                        .HasForeignKey("IncomeCategoryId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "Month")
-                        .WithMany("IncomeMonths")
-                        .HasForeignKey("MonthId")
-                        .OnDelete(DeleteBehavior.Restrict);
-
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "PaymentMode")
-                        .WithMany()
-                        .HasForeignKey("PaymentModeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-
-                    b.Navigation("Bank");
-
-                    b.Navigation("Cash");
-
-                    b.Navigation("Donor");
-
-                    b.Navigation("Event");
-
-                    b.Navigation("IncomeCategory");
-
-                    b.Navigation("Month");
-
-                    b.Navigation("PaymentMode");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.IncomeManagement.IncomeCategory", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("IncomeCategories")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
                 });
 
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.AccessControl.Action", b =>
@@ -2063,17 +1160,6 @@ namespace SadaqaAccounting.Database.Migrations
                     b.Navigation("EnumType");
                 });
 
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.Event", b =>
-                {
-                    b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", "AccountUnit")
-                        .WithMany("Events")
-                        .HasForeignKey("AccountUnitId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("AccountUnit");
-                });
-
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.Feature", b =>
                 {
                     b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Module", "Module")
@@ -2161,6 +1247,25 @@ namespace SadaqaAccounting.Database.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("SadaqaAccounting.Model.Models.SchoolAdmissionSystem.AdmissionHold", b =>
+                {
+                    b.HasOne("SadaqaAccounting.Model.Models.SchoolAdmissionSystem.AdmissionClass", "AdmissionClass")
+                        .WithMany("Holds")
+                        .HasForeignKey("AdmissionClassId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("SadaqaAccounting.Model.Models.SchoolAdmissionSystem.Student", "Student")
+                        .WithMany("Holds")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("AdmissionClass");
+
+                    b.Navigation("Student");
+                });
+
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.User", b =>
                 {
                     b.HasOne("SadaqaAccounting.Model.Models.MasterSettings.Enum.EnumTypeCollection", "ApplicationUserType")
@@ -2179,43 +1284,6 @@ namespace SadaqaAccounting.Database.Migrations
                     b.Navigation("Employee");
                 });
 
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.CashBankManagement.Cash", b =>
-                {
-                    b.Navigation("CashLedgers");
-
-                    b.Navigation("Expenses");
-
-                    b.Navigation("Incomes");
-
-                    b.Navigation("OpeningBalances");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.Cash_BankManagement.Bank", b =>
-                {
-                    b.Navigation("BankLedgers");
-
-                    b.Navigation("Expenses");
-
-                    b.Navigation("Incomes");
-
-                    b.Navigation("OpeningBalances");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.DonorManagement.Donor", b =>
-                {
-                    b.Navigation("Incomes");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.ExpenseManagement.ExpenseCategory", b =>
-                {
-                    b.Navigation("Expenses");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.IncomeManagement.IncomeCategory", b =>
-                {
-                    b.Navigation("Incomes");
-                });
-
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.AccessControl.Action", b =>
                 {
                     b.Navigation("FeatureActionMappings");
@@ -2232,30 +1300,6 @@ namespace SadaqaAccounting.Database.Migrations
 
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.AccountUnit", b =>
                 {
-                    b.Navigation("Assets");
-
-                    b.Navigation("BankLedgers");
-
-                    b.Navigation("Banks");
-
-                    b.Navigation("CashLedgers");
-
-                    b.Navigation("Cashes");
-
-                    b.Navigation("Donors");
-
-                    b.Navigation("Events");
-
-                    b.Navigation("ExpenseCategories");
-
-                    b.Navigation("Expenses");
-
-                    b.Navigation("IncomeCategories");
-
-                    b.Navigation("Incomes");
-
-                    b.Navigation("OpeningBalances");
-
                     b.Navigation("UserAccountUnits");
                 });
 
@@ -2278,28 +1322,17 @@ namespace SadaqaAccounting.Database.Migrations
                 {
                     b.Navigation("Actions");
 
-                    b.Navigation("Banks");
-
                     b.Navigation("Companies");
 
                     b.Navigation("Employees");
 
                     b.Navigation("Features");
 
-                    b.Navigation("IncomeMonths");
-
                     b.Navigation("Modules");
 
                     b.Navigation("ReportRegistries");
 
                     b.Navigation("Roles");
-                });
-
-            modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.Event", b =>
-                {
-                    b.Navigation("Expenses");
-
-                    b.Navigation("Incomes");
                 });
 
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.Feature", b =>
@@ -2321,6 +1354,16 @@ namespace SadaqaAccounting.Database.Migrations
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.ReportAccessControl.ReportRegistry", b =>
                 {
                     b.Navigation("ReportUserAccesses");
+                });
+
+            modelBuilder.Entity("SadaqaAccounting.Model.Models.SchoolAdmissionSystem.AdmissionClass", b =>
+                {
+                    b.Navigation("Holds");
+                });
+
+            modelBuilder.Entity("SadaqaAccounting.Model.Models.SchoolAdmissionSystem.Student", b =>
+                {
+                    b.Navigation("Holds");
                 });
 
             modelBuilder.Entity("SadaqaAccounting.Model.Models.MasterSettings.User", b =>

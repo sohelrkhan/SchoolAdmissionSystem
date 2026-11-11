@@ -57,6 +57,7 @@
                 new EnumType { Id = 4, Name = "Transaction Type" },
                 new EnumType { Id = 5, Name = "Source Type" },
                 new EnumType { Id = 6, Name = "Month" },
+                new EnumType { Id = 7, Name = "Admission Hold Status" },
             };
         }
 
@@ -93,7 +94,12 @@
                 new EnumTypeCollection { Id = 21, Name = "October", EnumTypeId = BaseEnumConfiguration.SadaqaAccounting.Month },
                 new EnumTypeCollection { Id = 22, Name = "November", EnumTypeId = BaseEnumConfiguration.SadaqaAccounting.Month },
                 new EnumTypeCollection { Id = 23, Name = "December", EnumTypeId = BaseEnumConfiguration.SadaqaAccounting.Month },
-                
+
+                new EnumTypeCollection { Id = 31, Name = "Held", EnumTypeId = BaseEnumConfiguration.SadaqaAccounting.AdmissionHoldStatus },
+                new EnumTypeCollection { Id = 32, Name = "Confirmed", EnumTypeId = BaseEnumConfiguration.SadaqaAccounting.AdmissionHoldStatus },
+                new EnumTypeCollection { Id = 33, Name = "Expired", EnumTypeId = BaseEnumConfiguration.SadaqaAccounting.AdmissionHoldStatus },
+                new EnumTypeCollection { Id = 34, Name = "Cancelled", EnumTypeId = BaseEnumConfiguration.SadaqaAccounting.AdmissionHoldStatus },
+
             };
         }
     }
