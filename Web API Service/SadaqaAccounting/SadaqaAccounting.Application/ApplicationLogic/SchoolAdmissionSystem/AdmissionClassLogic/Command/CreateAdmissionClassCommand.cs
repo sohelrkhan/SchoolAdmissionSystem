@@ -17,6 +17,7 @@ namespace SadaqaAccounting.Application.ApplicationLogic.SchoolAdmissionSystem.Ad
                 _mapper = mapper;
                 _httpContextAccessor = httpContextAccessor;
             }
+
             public async Task<AdmissionClassCreateModel> Handle(CreateAdmissionClassCommand request, CancellationToken cancellationToken)
             {
                 // Retrieve the user's Id from the current HTTP context
