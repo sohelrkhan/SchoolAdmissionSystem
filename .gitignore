@@ -25,7 +25,6 @@ project.lock.json
 *.pyc
 
 # Visual Studio Code
-.vscode
 
 # User-specific files
 *.suo
@@ -64,3 +63,4 @@ Web Application/SadaqaAccountingWeb/node_modules/
 Web Application/SadaqaAccountingWeb/.angular
 Web Application/SadaqaAccountingWeb/dist
 Web Application/SadaqaAccountingWeb/src/api/base-api.ts
+config.bat

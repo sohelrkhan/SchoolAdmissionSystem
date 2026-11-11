@@ -70,5 +70,9 @@
         // For Opening Balance
         public readonly static string OpeningBalanceIdNotFound = "Opening Balance cannot found! Please, provide valid id.";
         public readonly static string OpeningBalanceNotFound = "Opening Balance cannot found! Please, try again.";
+
+        // For Opening Balance
+        public readonly static string AdmissionClassIdNotFound = "Admission Class cannot found! Please, provide valid id.";
+        public readonly static string AdmissionClassNotFound = "Admission Class cannot found! Please, try again.";
     }
 }
